@@ -8,7 +8,6 @@ startBtn.addEventListener('click', () => {
   result.textContent = "";
   startBtn.style.display = 'none';
 
-  // 무작위 대기 시간 (1초 ~ 3초)
   const delay = Math.floor(Math.random() * 2000) + 1000;
 
   const reactionBtn = document.createElement('button');
@@ -24,7 +23,7 @@ startBtn.addEventListener('click', () => {
 
   reactionBtn.addEventListener('click', () => {
     const reactionTime = Date.now() - startTime;
-    result.textContent = `🎯 당신의 반응속도: ${reactionTime}ms`;
+    result.textContent = `반응속도: ${reactionTime}ms`;
     reactionBtn.remove();
     startBtn.style.display = 'inline-block';
     startBtn.textContent = '다시 시작';
