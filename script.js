@@ -23,3 +23,25 @@ document.addEventListener('mouseup', () => {
     card.classList.remove('lifted');
   }
 });
+
+card.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  const touch = e.touches[0];
+  offsetX = touch.clientX - card.offsetLeft;
+  offsetY = touch.clientY - card.offsetTop;
+  card.classList.add('lifted');
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    const touch = e.touches[0];
+    card.style.left = `${touch.clientX - offsetX}px`;
+    card.style.top = `${touch.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('touchend', () => {
+  isDragging = false;
+  card.classList.remove('lifted');
+});
+
